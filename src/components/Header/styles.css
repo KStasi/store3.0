@@ -1,0 +1,18 @@
+.innerbanner {
+    background-image: url("../../images/mountains3.jpg");
+    background-size: cover;
+    position: relative;
+    min-height: 260px;
+}
+
+@media(max-width:736px){
+    .innerbanner {
+        min-height: 200px;
+    }
+}
+
+@media(max-width:480px){
+    .innerbanner {
+        min-height: 160px;
+    }
+}

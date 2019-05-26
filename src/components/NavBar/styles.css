@@ -1,0 +1,113 @@
+ul#menu{
+    color:#eee;
+}
+
+ul#menu > li {
+    list-style-type: none;
+    text-align: -webkit-right;
+}
+
+label.menulist{
+    position:relative;
+    display:block;
+    transition:background 0.3s;
+    cursor:pointer;
+    line-height: 45px;
+}
+
+label.menulist:after{
+    content:"\f0c9";
+    position:absolute;
+    font-family: FontAwesome;
+    display:block;
+    font-size: 28px;
+    top:0%;
+    left:0;
+    right:0;
+    width:20px;
+    margin:0 auto;
+    height:0;
+    transition:border-bottom .1s, border-top .1s .1s;
+}
+
+label.menulist:hover,
+input:checked ~ label{}
+
+input#navbar-state:checked ~ label.menulist:after{
+    content:"\f00d";
+    font-family: FontAwesome;
+    transition:border-top .1s, border-bottom .1s .1s;
+}
+
+/*hide the inputs*/
+input#navbar-state{display:none}
+
+/*show the second levele menu of the selected voice*/
+input#navbar-state:checked ~ ul.submenu{
+    max-height:300px;
+    transition:max-height 0.5s ease-in;
+    z-index: 999;
+}
+
+/*style for the second level menu*/
+ul.submenu {
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+    background: #fff;
+    box-shadow: 0 0 1px rgba(0,0,0,.3);
+    transition: max-height 0.5s ease-out;
+    position: absolute;
+    min-width: 100%;
+}
+label.menulist, ul.submenu{
+    width: 110px;
+}
+
+ul.submenu li a{
+    color:#000;
+    text-decoration:none;
+    transition:background .3s;
+    white-space:nowrap;
+    text-transform: capitalize;
+    font-size: 16px;
+    display: block;
+    margin: 13px;
+    font-weight: 400;
+    text-align:center;
+    opacity:0.7;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+#menu li a.active {
+    opacity:1;
+}
+
+ul.submenu li a:hover{
+    opacity:1;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+ul.submenu:before {
+    position: absolute;
+    top: -30px;
+    left: 80px;
+    content: "";
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 15px solid #fff;
+    border-top: 15px solid transparent;
+}
+
+@media(max-width:480px){
+    label.menulist, ul.submenu {
+        width: 70px;
+    }
+}

@@ -1,0 +1,100 @@
+.foot-top h2 {
+    font-size: 2.5em;
+    font-weight: 400;
+    line-height: 1.4em;
+    letter-spacing: 2px;
+    color: #555;
+    text-align: center;
+}
+.foot-top h2:after {
+    background: rgba(224, 221, 221, 0.5);
+    content: '';
+    display: block;
+    height: 1px;
+    width: 6em;
+    margin: 0.8em auto;
+}
+.foot-top {
+    background: url(../../images/abstraction2.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+section.foot-top h4 {
+    font-size: 1.35em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    line-height: 1.75em;
+}
+section.foot-top p {
+    font-size: 16px;
+    color: #fff;
+    margin-top: 1em;
+    line-height: 1.8em;
+}
+.foot-top-left {
+    padding: 0 4em;
+}
+.cpy-right {
+    background: #388dbf;
+}
+ul.social_section_1info li {
+    display: inline-block;
+}
+ul.social_section_1info a span {
+    color: #fff;
+    margin-right: 30px;
+    font-size: 25px;
+    opacity:0.7;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+ul.social_section_1info a span:hover {
+    opacity:1;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+@media(max-width:1080px){
+    .foot-top h2 {
+        font-size: 2em !important;
+    }
+}
+@media(max-width:1050px){
+}
+@media(max-width:1024px){
+    .overlay ul li a {
+        font-size: 19px !important;
+        padding: 14px;
+    }
+}
+@media(max-width:991px){
+    ul.social_section_1info.pt-lg-5.mb-lg-5 {
+        margin-bottom: 1.5em;
+    }
+}
+@media(max-width:736px){
+    .foot-top h2 {
+        font-size: 1.8em !important;
+    }
+}
+
+@media(max-width:384px){
+    .foot-top h2 {
+        font-size: 1.5em !important;
+    }
+    section.foot-top p {
+        font-size: 14px !important;
+    }
+}

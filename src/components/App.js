@@ -8,11 +8,9 @@ import Event from './Event';
 import NotFound from './NotFound';
 import Header from './Header';
 import Footer from './Footer';
-import Navbar from './Navbar';
 
 const App = () => (
     <Router>
-        <Navbar/>
         <Header/>
         <Suspense fallback={<div>Loading...</div>}>
             <Switch>
