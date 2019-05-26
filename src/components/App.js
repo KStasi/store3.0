@@ -2,7 +2,7 @@ import React, { Suspense, Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import Events from './Events';
-import Contracts from './Contracts';
+import Contacts from './Contacts';
 import Admin from './Admin';
 import Event from './Event';
 import NotFound from './NotFound';
@@ -20,7 +20,7 @@ const routes = [
     },
     {
         path: "/contacts",
-        component: Contracts
+        component: Contacts
     },
     {
         path: "/admin",
@@ -59,7 +59,11 @@ class App extends Component {
                                     )}
                             />)
                         })}
-                        <Route component={NotFound} />
+                        <Route key={routes.length}
+                               render={props => (
+                                   <NotFound {...props} changeHasBannerState={this.changeHasBannerState} />
+                               )}
+                        />
                     </Switch>
                 </Suspense>
                 <Footer/>
