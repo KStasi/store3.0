@@ -1,0 +1,125 @@
+.baner-text {
+    padding: 11em 0 0;
+}
+.baner-text h1 {
+    color: #ffff;
+    text-transform: capitalize;
+    font-size: 2.5em;
+    line-height: 1.35em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    opacity: 1;
+    width: 56%;
+}
+.baner-text p {
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #fff;
+    letter-spacing: 0.225em;
+    width: 44%;
+    line-height: 1.8em;
+    text-align: center;
+}
+span.tp_bt {
+    font-size: 5em;
+    color: #fff;
+}
+.agile-link-bnr {
+    padding: 10px 40px;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background:none;
+    border: 1px solid #ffffff;
+    position:relative;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.agile-link-bnr:hover {
+    opacity:0.7;
+    background:none;
+    color: #fff;
+    border: 1px solid #ffffff;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+span.bt-ar{
+    font-size:3em;
+    color:#fff;
+}
+
+@media(max-width:1080px) {
+    .baner-text h1 {
+        width: 75%;
+    }
+
+    .baner-text p {
+        width: 61%;
+    }
+
+    .baner-text {
+        padding: 9em 0 0;
+    }
+}
+
+@media(max-width:991px) {
+    .baner-text h1 {
+        font-size: 2.2em !important;
+        width: 100%;
+    }
+
+    .baner-text p {
+        width: 84%;
+    }
+
+    .baner-text {
+        padding: 7em 0 0;
+    }
+}
+
+@media(max-width:736px){
+    .baner-text h1 {
+        font-size: 2em !important;
+    }
+    .baner-text {
+        padding: 5em 0 0;
+    }
+}
+@media(max-width:480px){
+    .baner-text h1 {
+        font-size: 1.6em !important;
+    }
+    .baner-text p {
+        width: 100%;
+    }
+    .baner-text {
+        padding: 4em 0 0;
+    }
+}
+@media(max-width:440px){
+    .baner-text p {
+        font-size: 14px !important;
+    }
+    .baner-text h1 {
+        font-size: 1.4em !important;
+    }
+}
+
+@media(max-width:384px){
+    .baner-text p {
+        letter-spacing: 0.1em;
+    }
+}
+@media(max-width:320px){
+    .baner-text h1 {
+        font-size: 1.3em !important;
+    }
+}

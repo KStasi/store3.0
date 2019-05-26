@@ -5,14 +5,35 @@
     min-height: 260px;
 }
 
+.main-banner {
+    background-image: url("../../images/abstraction4.jpg");
+    background-size: cover;
+    position: relative;
+    min-height: 720px;
+}
+
+
+@media(max-width:991px){
+    .main-banner {
+        min-height: 590px;
+    }
+}
 @media(max-width:736px){
     .innerbanner {
         min-height: 200px;
+    }
+
+    .main-banner {
+        min-height: 550px;
     }
 }
 
 @media(max-width:480px){
     .innerbanner {
         min-height: 160px;
+    }
+
+    .main-banner {
+        min-height: 500px;
     }
 }

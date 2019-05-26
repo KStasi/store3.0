@@ -20,10 +20,10 @@ class Footer extends Component {
                     </div>
                 </div>
                 <ul className="social_section_1info text-center py-5">
-                    <li><a href="#"><span className="fa fa-facebook"></span></a></li>
-                    <li><a href="#"><span className="fa fa-twitter"></span></a></li>
-                    <li><a href="#"><span className="fa fa-google-plus"></span></a></li>
-                    <li><a href="#"><span className="fa fa-linkedin"></span></a></li>
+                    <li><Link to="#"><span className="fa fa-facebook"></span></Link></li>
+                    <li><Link to="#"><span className="fa fa-twitter"></span></Link></li>
+                    <li><Link to="#"><span className="fa fa-google-plus"></span></Link></li>
+                    <li><Link to="#"><span className="fa fa-linkedin"></span></Link></li>
                 </ul>
             </section>
         )

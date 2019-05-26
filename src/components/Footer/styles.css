@@ -66,27 +66,102 @@ ul.social_section_1info a span:hover {
     -ms-transition: 0.5s all;
 }
 
+.inner-conent-lft {
+    text-align: right;
+}
+
+a.banner-button2 {
+    background: #fff;
+    color: #555;
+    letter-spacing: 1px;
+    border: 1px solid #fff;
+    font-weight: 600;
+    font-size:14px;
+    display:inline-block;
+    padding: 10px 28px;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    opacity:0.7;
+}
+
+a.banner-button2:hover {
+    border: 1px solid #fff;
+    background: #fff;
+    color: #555;
+    opacity:1;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+a.banner-button, button.submit {
+    background: none;
+    color: #fff;
+    letter-spacing: 1px;
+    border: 1px solid #fff;
+    padding: 10px 28px;
+    display:inline-block;
+    font-weight: 600;
+    font-size:14px;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    opacity:0.7;
+}
+
+a.banner-button:hover {
+    border: 1px solid #ffffff;
+    background: none;
+    color: #fff;
+    opacity:1;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
 @media(max-width:1080px){
     .foot-top h2 {
         font-size: 2em !important;
     }
 }
-@media(max-width:1050px){
-}
+
 @media(max-width:1024px){
     .overlay ul li a {
         font-size: 19px !important;
         padding: 14px;
     }
 }
+
 @media(max-width:991px){
+    a.banner-button, button.submit,a.banner-button2 {
+
+    }
     ul.social_section_1info.pt-lg-5.mb-lg-5 {
         margin-bottom: 1.5em;
     }
 }
+
 @media(max-width:736px){
     .foot-top h2 {
         font-size: 1.8em !important;
+    }
+
+    .inner-conent-lft {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .inner-conent-rgt {
+        text-align: center;
     }
 }
 
