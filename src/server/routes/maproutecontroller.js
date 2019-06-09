@@ -8,7 +8,9 @@ module.exports.mapRoute = (app, prefix) => {
 
     let prefixObj = require("../controllers" + prefix);
 
-    app.get(prefix + "/show/:id", prefixObj.showSingle);
+    app.get(prefix + "/", prefixObj.show);
+
+    app.post(prefix + "/show/:id", prefixObj.showSingle);
 
     app.post(prefix + "/filter", prefixObj.filter);
 
