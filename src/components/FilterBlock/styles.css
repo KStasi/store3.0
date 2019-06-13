@@ -1,0 +1,52 @@
+.filter-container {
+    background: url("../../images/abstraction5.jpg");
+    max-width: 80vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: whitesmoke;
+}
+
+.filter-block {
+    display: block;
+    vertical-align: middle;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin: auto;
+}
+
+.filter-box {
+    margin: 1vw;
+    max-width: 40vw;
+    text-align: left;
+    padding: 0;
+}
+
+.filter-group {
+    max-width: 33%;
+    vertical-align: middle;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    text-align: center;
+}
+
+.inline {
+    max-width: 35vh;
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+    align-content: end;
+    align-items: end;
+}
+
+#start_1, #start_2, #end_1, #end_2, #price_1, #price_2 {
+    font-size: 1px;
+    opacity: 0.0;
+    height: 0.1vh;
+}

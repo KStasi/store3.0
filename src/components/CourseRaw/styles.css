@@ -1,0 +1,33 @@
+.cource-list-agile {
+    background-image: url("../../images/minimalism3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.agile-link-bnr1 {
+    padding: 10px 40px;
+    color: #555;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 16px;
+    background: none;
+    border: 1px solid #555;
+    text-transform:uppercase;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.agile-link-bnr1:hover {
+    padding: 10px 45px;
+    color: #555;
+    letter-spacing: 1.5px;
+    background: none;
+    border: 1px solid #555;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}

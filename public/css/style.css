@@ -264,88 +264,7 @@ h6.top-title {
 	color:#ee578a;
 }
 
-.filter-container {
-    background: url("../images/abstraction5.jpg");
-    max-width: 80vw;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: whitesmoke;
-}
 
-
-.cource-list-agile {
-    background-image: url("../images/minimalism3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.filter-block {
-    display: block;
-    vertical-align: middle;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    margin: auto;
-}
-
-.filter-box {
-    margin: 1vw;
-    max-width: 40vw;
-    text-align: left;
-    padding: 0;
-}
-
-.filter-group {
-    max-width: 33%;
-    vertical-align: middle;
-    align-items: center;
-    align-content: center;
-    margin: auto;
-    text-align: center;
-}
-
-.inline {
-    max-width: 35vh;
-    display: inline-block;
-    margin: 0 auto;
-    position: relative;
-    text-align: left;
-}
-
-.right {
-    text-align: right;
-    align-content: end;
-    align-items: end;
-}
-
-
-.agile-link-bnr1 {
-    padding: 10px 40px;
-    color: #555;
-    font-weight: 400;
-    letter-spacing: 1px;
-    font-size: 16px;
-    background: none;
-    border: 1px solid #555;
-	text-transform:uppercase;
-	transition: 0.5s all;
-	-webkit-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	-ms-transition: 0.5s all;
-}
-.agile-link-bnr1:hover {
-    padding: 10px 45px;
-    color: #555;
-    letter-spacing: 1.5px;
-    background: none;
-    border: 1px solid #555;
-	transition: 0.5s all;
-	-webkit-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	-ms-transition: 0.5s all;
-}
 
 /* contact */
 
@@ -363,11 +282,6 @@ h6.top-title {
 	font-weight: 300;
 }
 
-#start_1, #start_2, #end_1, #end_2, #price_1, #price_2 {
-    font-size: 1px;
-    opacity: 0.0;
-    height: 0.1vh;
-}
 
 .btn-mod.btn-large {
 	height: auto;

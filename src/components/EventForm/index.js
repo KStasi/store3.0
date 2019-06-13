@@ -17,9 +17,36 @@ class EventForm extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onSubmit(event){
-        alert(`${this.state.name}, добро пожаловать!`);
+    async onSubmit(event){
         event.preventDefault();
+        const xhr = new XMLHttpRequest();
+        var eventLabel = this.state;
+        xhr.open('POST', 'http://localhost:8080/events/create', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        var data = new URLSearchParams();
+        for (var key in eventLabel) {
+            data.append(key, eventLabel[key]);
+        }
+        xhr.send(data);
+
+        this.setState({ isLoading: true });
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState !== 4) {
+                return false
+
+            }
+            if (xhr.status !== 200) {
+                console.log(xhr.status + ': ' + xhr.statusText)
+            } else {
+                console.log(JSON.parse(xhr.response).result);
+                this.setState({
+                    data: JSON.parse(xhr.response).result,
+                    isLoading: false,
+                })
+            }
+        };
+        alert(`${this.state.name}, добро пожаловать!`);
+        return false;
     }
 
     onChangeStart(event){
@@ -56,7 +83,7 @@ class EventForm extends Component {
 
     render() {
         return (
-            <form id="contact-form" name="myForm" className="form" action="/events/create"
+            <form id="contact-form" name="myForm" className="form" onSubmit={this.onSubmit}
                   method="POST">
                 <div className="form-group">
                     <label className="form-label" id="nameLabel" htmlFor="name"></label>

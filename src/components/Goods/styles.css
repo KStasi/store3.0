@@ -1,0 +1,56 @@
+form#contact-form label {
+    color: #ea4335;
+}
+
+.form-group .form-control {
+    -webkit-box-shadow: none;
+    border-bottom: 1px;
+    border-style: none none solid none;
+    border-color:#25c2da;
+}
+
+.form-group .form-control:focus {
+    box-shadow: none;
+    border-width: 0 0 2px 0;
+    border-color: #000;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="file"] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#attachmentSelector input {
+    pointer-events: none;
+}
+
+#attachmentSelector {
+    cursor: pointer;
+}
+
+.serv_bottom {
+    background: #25c2da;
+    color:#fff;
+}
+.serv_bottom:hover {
+    background: #25c2da;
+    color:#fff;
+}
+
+.form-control {
+    background-color: #e2e2e2;
+    border: none;
+}
+
+#bottom-img {
+    background: url('../../images/person2.png') no-repeat;
+    background-size: cover;
+}

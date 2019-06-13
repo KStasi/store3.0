@@ -1,5 +1,5 @@
+const crypto = require("crypto");
 const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://admin:admin@store3-uuoxs.mongodb.net/store?retryWrites=true&w=majority";
 const url = "mongodb://localhost:27017";
 const client = new MongoClient(url, {useNewUrlParser: true});
 const dbName = "store";
@@ -30,15 +30,17 @@ module.exports.create = async (req, res) => {
         _id: await getNextId(client.db(dbName), 'events'),
         name: req.body.name,
         type: req.body.type,
-        start: get_date_string(req.body.start, "start", true),
-        end: get_date_string(req.body.end, "end", true),
+        start: parseInt(get_date_string(req.body.start, "start", true)),
+        end: parseInt(get_date_string(req.body.end, "end", true)),
         topic: req.body.topic,
         tutor: req.body.tutor,
         description: req.body.description,
-        price: req.body.price,
+        price: parseFloat(req.body.price),
     };
+
+    event.url = `https://www.gravatar.com/avatar/${crypto.createHash('md5').update(event._id + event.name)
+        .digest("hex")}.jpg?s=200&d=identicon`;
     let result = await events.insertOne(event);
-    // console.log(result);
     res.json({ result: result['ops']});
 };
 
@@ -46,13 +48,15 @@ module.exports.update = async (req, res) => {
     let event = {
         name: req.body.name,
         type: req.body.type,
-        start: get_date_string(req.body.start, "start", true),
-        end: get_date_string(req.body.end, "end", true),
+        start: get_date_string(req.body.start, "start"),
+        end: get_date_string(req.body.end, "end"),
         topic: req.body.topic,
         tutor: req.body.tutor,
         description: req.body.description,
         price: req.body.price,
     };
+    event.url = `https://www.gravatar.com/avatar/${crypto.createHash('md5').update(event._id + event.name)
+        .digest("hex")}.jpg?s=200&d=identicon`;
     await client.connect();
     let events = client.db(dbName).collection("events");
     let result = await events.findOneAndUpdate({_id: parseInt(req.body.id.toString())}, {$set: event});
@@ -83,10 +87,10 @@ function getFilter(req) {
         event.$and.push({ type: { $in: [req.body.type_1, req.body.type_2, req.body.type_3] } });
     }
     if (req.body.start_1 && req.body.start_2) {
-        event.$and.push({ $and: [ { start: { $gre: req.body.start_1 } }, { start: { $lse: req.body.start_2 } } ] });
+        event.$and.push({ $and: [ { start: { $gte: parseInt(req.body.start_1) } }, { start: { $lte: parseInt(req.body.start_2) } } ] });
     }
     if (req.body.end_1 && req.body.end_2) {
-        event.$and.push({ $and: [ { end: { $gre: req.body.end_1 } }, { end: { $lse: req.body.end_2 } } ] });
+        event.$and.push({ $and: [ { end: { $gte: parseInt(req.body.end_1) } }, { end: { $lte: parseInt(req.body.end_2) } } ] });
     }
     if (req.body.topic) {
         event.$and.push({ topic: { $regex: `.*${req.body.topic}.*` } });
@@ -98,8 +102,9 @@ function getFilter(req) {
         event.$and.push({ description: { $regex: `.*${req.body.description}.*` } });
     }
     if (req.body.price_1 && req.body.price_2) {
-        event.$and.push({ $and: [ { price: { $gre: req.body.price_1 } }, { price: { $lse: req.body.price_2 } } ] });
+        event.$and.push({ $and: [ { price: { $gte: parseInt(req.body.price_1) } }, { price: { $lte: parseInt(req.body.price_2) } } ] });
     }
+    console.log(JSON.stringify(event));
     return event;
 }
 
@@ -108,6 +113,7 @@ module.exports.filter = async (req, res) => {
     const events = await client.db(dbName).collection("events");
     let filter = getFilter(req);
     let result = await events.find(filter).toArray();
+    console.log(result);
     res.json({ result: result});
 };
 
@@ -120,7 +126,7 @@ module.exports.destroy = async (req, res) => {
 
 function get_date_string(data, type, specify) {
     if (data) {
-        return (specify) ? ('\"' + dateToTimestamp(data) + "\", ") : (type + ', ');
+        return dateToTimestamp(data);
     }
     return '';
 }

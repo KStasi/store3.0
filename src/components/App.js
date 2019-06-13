@@ -55,7 +55,7 @@ class App extends Component {
                             return (<Route key={i} exact
                                     path={route.path}
                                     render={props => (
-                                        <route.component {...props} changeHasBannerState={this.changeHasBannerState} requests={[]}/>
+                                        <route.component {...props} changeHasBannerState={this.changeHasBannerState}/>
                                     )}
                             />)
                         })}
