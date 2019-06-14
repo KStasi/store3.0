@@ -5,7 +5,8 @@ import './styles.css'
 class EventForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {name: '', start: '', end: '', topic: '', tutor: '', type: '', price: '', description: ''};
+        this.state = (props.state) ? props.state : {name: '', start: '', end: '', topic: '', tutor: '', type: '', price: '', description: ''};
+        this.setSendForm = props.setSendForm;
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeStart = this.onChangeStart.bind(this);
         this.onChangeTopic = this.onChangeTopic.bind(this);
@@ -21,11 +22,18 @@ class EventForm extends Component {
         event.preventDefault();
         const xhr = new XMLHttpRequest();
         var eventLabel = this.state;
-        xhr.open('POST', 'http://localhost:8080/events/create', true);
+        if (this.state._id) {
+            xhr.open('PUT', `http://localhost:8080/events/edit/${this.state._id}`, true);
+        } else {
+            xhr.open('POST', 'http://localhost:8080/events/create', true);
+        }
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         var data = new URLSearchParams();
         for (var key in eventLabel) {
             data.append(key, eventLabel[key]);
+        }
+        if (this.state._id) {
+            data.append("id", this.state._id);
         }
         xhr.send(data);
 
@@ -38,14 +46,13 @@ class EventForm extends Component {
             if (xhr.status !== 200) {
                 console.log(xhr.status + ': ' + xhr.statusText)
             } else {
-                console.log(JSON.parse(xhr.response).result);
+                this.setSendForm();
                 this.setState({
                     data: JSON.parse(xhr.response).result,
                     isLoading: false,
                 })
             }
         };
-        alert(`${this.state.name}, добро пожаловать!`);
         return false;
     }
 
@@ -66,7 +73,7 @@ class EventForm extends Component {
     }
 
     onChangeType(event){
-        this.setState({type: event.target.value});
+        this.setState({type: this.getType(event.target.value)});
     }
 
     onChangeTopic(event){
@@ -80,6 +87,16 @@ class EventForm extends Component {
     onChangeDescription(event){
         this.setState({description: event.target.value});
     }
+
+    getType(type) {
+        var types = {
+            "1": "Course",
+            "2": "Meeting",
+            "3": "Consultation",
+            "4": "Miscellaneous"
+        };
+      return types[type];
+    };
 
     render() {
         return (

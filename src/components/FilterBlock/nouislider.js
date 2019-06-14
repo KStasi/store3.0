@@ -1938,7 +1938,7 @@
                             handleNumber,
                             // Un-formatted slider values
                             scope_Values.slice(),
-                            // Event is fired by tap, true or false
+                            // EventUpdate is fired by tap, true or false
                             tap || false,
                             // Left offset of the handle, in relation to the slider
                             scope_Locations.slice()
@@ -2171,7 +2171,7 @@
             var values = asArray(input);
             var isInit = scope_Locations[0] === undefined;
 
-            // Event fires by default
+            // EventUpdate fires by default
             fireSetEvent = fireSetEvent === undefined ? true : !!fireSetEvent;
 
             // Animation is optional.

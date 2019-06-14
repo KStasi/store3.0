@@ -8,7 +8,8 @@ class Goods extends Component {
         super(props);
         this.state = {
             requests: this.props.requests,
-        }
+            setRender: this.props.setRender
+        };
     }
 
     render() {
@@ -17,7 +18,7 @@ class Goods extends Component {
                 <div className="course-w3ls py-5">
                     <div className="container py-xl-5 py-lg-3">
                         {this.state.requests.map((request, i) => {
-                            return (<CourseRaw key={i} request={request}/>)
+                            return (<CourseRaw key={i} request={request} setRender={this.state.setRender}/>)
                         })}
                     </div>
                 </div>

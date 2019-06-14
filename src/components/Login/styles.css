@@ -1,0 +1,39 @@
+form#contact-form label {
+    color: #ea4335;
+}
+
+.form-group .form-control {
+    -webkit-box-shadow: none;
+    border-bottom: 1px;
+    border-style: none none solid none;
+    border-color:#25c2da;
+}
+
+.form-group .form-control:focus {
+    box-shadow: none;
+    border-width: 0 0 2px 0;
+    border-color: #000;
+}
+
+textarea {
+    resize: none;
+}
+
+.serv_bottom {
+    background: #25c2da;
+    color:#fff;
+}
+.serv_bottom:hover {
+    background: #25c2da;
+    color:#fff;
+}
+
+.form-control {
+    background-color: #e2e2e2;
+    border: none;
+}
+
+#left-image {
+    background: url('../../images/student.png') no-repeat;
+    background-size: cover;
+}

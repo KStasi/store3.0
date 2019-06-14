@@ -8,9 +8,10 @@ class Events extends Component {
         props.changeHasBannerState();
         this.state = {
             data: [],
-            isLoading: false,
+            isLoading: false
         };
         this.changeEventsState = this.changeEventsState.bind(this);
+        this.setRender = this.setRender.bind(this);
     }
 
     changeEventsState() {
@@ -85,7 +86,29 @@ class Events extends Component {
                     isLoading: false,
                 })
             }
-        }
+        };
+    }
+
+    setRender() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/events/', true);
+        xhr.send();
+        this.setState({ isLoading: true });
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState !== 4) {
+                return false
+            }
+
+            if (xhr.status !== 200) {
+                console.log(xhr.status + ': ' + xhr.statusText)
+            } else {
+                this.setState({
+                    data: JSON.parse(xhr.response).result,
+                    isLoading: false,
+                })
+            }
+        };
     }
 
     renderCourses() {
@@ -99,7 +122,7 @@ class Events extends Component {
                 </div>
             );
         } else {
-            return <Goods requests={data}/>;
+            return <Goods requests={data} setRender={this.setRender}/>;
         }
     }
 

@@ -8,6 +8,8 @@ import Event from './Event';
 import NotFound from './NotFound';
 import Header from './Header';
 import Footer from './Footer';
+import EventUpdate from "./EventUpdate";
+import Login from "./Login";
 
 const routes = [
     {
@@ -27,7 +29,15 @@ const routes = [
         component: Admin
     },
     {
-        path: "/event/:id",
+        path: "/login",
+        component: Login
+    },
+    {
+        path: "/event/edit/:id",
+        component: EventUpdate
+    },
+    {
+        path: "/event/create",
         component: Event
     }
 ];

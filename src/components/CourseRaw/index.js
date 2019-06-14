@@ -7,6 +7,35 @@ class CourseRaw extends Component {
         super(props);
         this.state = {
             request: this.props.request,
+            setRender: this.props.setRender
+        };
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(event) {
+        event.preventDefault();
+        const xhr = new XMLHttpRequest();
+        xhr.open('DELETE', `http://localhost:8080/events/delete/${this.state.request._id}`, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        var data = new URLSearchParams();
+        data.append("id", this.state.request._id);
+        xhr.send(data);
+        this.setState({ isLoading: true });
+
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState !== 4) {
+                return false
+            }
+
+            if (xhr.status !== 200) {
+                console.log(xhr.status + ': ' + xhr.statusText)
+            } else {
+                this.setState({
+                    data: JSON.parse(xhr.response).result,
+                    isLoading: false,
+                });
+                this.state.setRender();
+            }
         }
     }
 
@@ -19,6 +48,8 @@ class CourseRaw extends Component {
     
     render() {
         var entry;
+        var deleteLink = `/event/delete/${this.state.request._id}`;
+        var editLink = `/event/edit/${this.state.request._id}`;
         if (this.state.request._id % 2 === 0) {
             entry = (
                 <div className="row cource-list-agile pt-4 my-4">
@@ -56,8 +87,8 @@ class CourseRaw extends Component {
                         <img src={this.state.request.url} alt="" className="img-fluid text-center cource-image"></img>
                     </div>
                     <div className="buttons-w3ls">
-                        <a className="btn button-cour-w3ls text-white" href="course_details.html" role="button">Learn
-                            More</a>
+                        <a className="btn button-cour-w3ls" onClick={this.onClick} href={deleteLink} role="button">Delete</a>
+                        <a className="btn button-cour-w3ls" href={editLink} role="button">Edit</a>
                         <a className="btn bg-dark text-white" href="form.html" role="button">Apply Now</a>
                     </div>
                 </div>
@@ -98,8 +129,8 @@ class CourseRaw extends Component {
                         </div>
                     </div>
                     <div className="buttons-w3ls-2">
-                        <a className="btn button-cour-w3ls text-white" href="course_details.html" role="button">Learn
-                            More</a>
+                        <a className="btn button-cour-w3ls" onClick={this.onClick} href={deleteLink} role="button">Delete</a>
+                        <a className="btn button-cour-w3ls" href={editLink} role="button">Edit</a>
                         <a className="btn bg-dark text-white" href="form.html" role="button">Apply Now</a>
                     </div>
                 </div>
